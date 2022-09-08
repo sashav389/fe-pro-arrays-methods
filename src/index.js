@@ -85,7 +85,11 @@ const minPriceReducer = () => {
   return goods.reduce((accum, item) => {
     if(item.price <= accum) return  item.price;
     else return accum;
-  }, maxPriceReducer)
+  },
+      goods.reduce((accum, item) => {
+        if(item.price > accum) return  item.price;
+        else return accum;
+      }, 0))
  };
 
 const maxPriceReducer = () => {
